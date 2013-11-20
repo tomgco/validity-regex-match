@@ -1,0 +1,29 @@
+{
+  "name": "validity-regex-match",
+  "version": "0.0.1",
+  "description": "Validity style validator to ensure a something matches the inputted regex",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomgco/validity-regex-match.git"
+  },
+  "author": "Tom Gallacher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomgco/validity-regex-match/issues"
+  },
+  "homepage": "https://github.com/tomgco/validity-regex-match",
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
