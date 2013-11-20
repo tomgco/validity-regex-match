@@ -1,7 +1,7 @@
 qa: test lint
 
 test:
-	@./node_modules/.bin/mocha -R spec
+	@./node_modules/.bin/mocha -R spec -r should
 
 lint-changed:
 	@jshint `git status --porcelain | sed -e "s/^...//g"`

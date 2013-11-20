@@ -1,7 +1,7 @@
 {
   "name": "validity-regex-match",
   "version": "0.0.1",
-  "description": "Validity style validator to ensure a something matches the inputted regex",
+  "description": "Validity style validator to match simple regex's to a property.",
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tomgco/validity-regex-match",
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "should": "~2.1.0"
   }
 }

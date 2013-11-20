@@ -1,11 +1,11 @@
-validity-string-represents-mongodb-objectid
+validity-regex-match
 ===========================================
 
-Validity style validator to ensure a property is an Object ID.
+Validity style validator to match simple regex's to a property.
 
 ## Installation
 
-      npm install validity-string-represents-mongodb-objectid
+      npm install validity-regex-match
 
 ## Usage
 
@@ -15,21 +15,21 @@ Below is a simple example for usage with schemata:
 
 var validity = require('validity')
   , schemata = require('schemata')
-  , stringRepresentsObjectId = require('validity-string-represents-mongodb-objectid')
+  , regexMatch = require('validity-regex-match')
 
 var schema = schemata(
-    { linkedObjectId:
-      { type: String
+    { pinCode:
+      { type: String // String as we need a leading 0
       , validators:
-        { all: [stringRepresentsObjectId()]
+        { all: [regexMatch(/[0-9]{4}/)]
         }
       }
-      , otherObjectId:
+      , membershipCode:
       { type: String
       }
     })
 
-schema.validate({ linkedObjectId: 'noidhere', linkedObjectId: 'notanid' }, function (error, valid) {
+schema.validate({ pinCode: '2323', membershipCode: '9238' }, function (error, valid) {
   // Show the error
   console.log(valid)
 })
