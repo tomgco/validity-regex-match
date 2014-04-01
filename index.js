@@ -6,19 +6,15 @@ function createValidator(regex, optionalErrorText) {
   optionalErrorText = optionalErrorText || 'does not match ' + regex.toString()
 
   function validate(key, keyDisplayName, object, cb) {
-    if (!matching(object[key])) {
-      return cb(null, keyDisplayName + ' ' + optionalErrorText)
-    }
 
-    return cb(null, undefined)
+    // Don't validate the value if it's not set
+    if (typeof object[key] === 'undefined' || object[key] === null) return cb(null)
+
+    if (!matching(object[key])) return cb(null, keyDisplayName + ' ' + optionalErrorText)
+
+    return cb(null)
   }
 
- 	/**
-  * Validates that value is the correct for an ObjectID
-  *
-  * @param {String} value to validate
-  * @return {Boolean} True if value is a valid for a URL
-  */
   function matching(value) {
     return (regex).test('' + value)
   }

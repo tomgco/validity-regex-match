@@ -49,4 +49,16 @@ describe('regex-match', function () {
       var fn = regexMatch()
     }).should.throw(/regex is not an instance of RegExp/)
   })
+
+  it('should pass on a non-stringy object', function (done) {
+
+    var fn = regexMatch(/^[0-9]{4}/, 'must a be a 4 digit pin')
+
+    fn('id', 'Id', { id: null }, function (error, errorMessage) {
+      assert(!errorMessage)
+      done()
+    })
+
+  })
+
 })
