@@ -13,12 +13,6 @@ function createValidator(regex, optionalErrorText) {
     return cb(null, undefined)
   }
 
- 	/**
-  * Validates that value is the correct for an ObjectID
-  *
-  * @param {String} value to validate
-  * @return {Boolean} True if value is a valid for a URL
-  */
   function matching(value) {
     return (regex).test('' + value)
   }
