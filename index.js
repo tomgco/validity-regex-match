@@ -6,13 +6,11 @@ function createValidator(regex, optionalErrorText) {
   optionalErrorText = optionalErrorText || 'does not match ' + regex.toString()
 
   function validate(key, keyDisplayName, object, cb) {
+    if (!matching(object[key])) {
+      return cb(null, keyDisplayName + ' ' + optionalErrorText)
+    }
 
-    // Don't validate the value if it's not set
-    if (typeof object[key] === 'undefined' || object[key] === null) return cb(null)
-
-    if (!matching(object[key])) return cb(null, keyDisplayName + ' ' + optionalErrorText)
-
-    return cb(null)
+    return cb(null, undefined)
   }
 
   function matching(value) {
