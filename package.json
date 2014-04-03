@@ -1,6 +1,6 @@
 {
   "name": "validity-regex-match",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Validity style validator to match simple regex's to a property.",
   "main": "index.js",
   "directories": {
